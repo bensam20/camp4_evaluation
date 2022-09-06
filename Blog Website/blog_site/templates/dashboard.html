@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+
+{% block style %}
+{{ super() }}
+    <style>
+      
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <h4 class="center">Blogs</h4>
+
+        <div class="row">
+            {% for blog in blogs %}
+
+            <div class="col s12 m12 card light-blue darken-1">
+
+                <div class="card-content white-text">
+                    <span class="card-title">{{ blog.title }}</span>
+                    <p >{{ authors[blog.user_id] }}</p><br>
+                    <p >{{ blog.date }}</p><br>
+                    <p>{{ blog.content[:1000] }}</p>
+
+                    <div class="card-action">
+                        <a class="right" href="{{ url_for('views.post', blogId=blog.id) }}">Read More</a>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

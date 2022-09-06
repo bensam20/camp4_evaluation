@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+
+{% block style %}
+{{ super() }}
+    <style>
+      
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <h3 class="center">{{ post.title }}</h3>
+    <h5 class="center">{{ authors[post.user_id] }}</h5>
+
+
+    <div class="row">
+        <div class="col s12 m12 card light-blue darken-1">
+
+            <div class="card-content white-text">
+                <p>{{ post.content[:1000] }}</p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
